@@ -42,7 +42,9 @@ struct ContentView: View {
 //                                    Text(game.wrappedCourseName)
 //                                }
                                 
-                                NavigationLink(destination: StatisticsView(game:game)){
+                                NavigationLink(destination:
+                                                
+                                                ScoreCardView(game:game)){
                                     Text(game.wrappedCourseName)
                                         
                                 }
@@ -63,6 +65,8 @@ struct ContentView: View {
                         NavigationLink(destination: CreateNewGameView()) {
                             Text("Create New Game")
                         }
+                        
+                        
                         
                         
                         NavigationLink(destination: HistoryView()) {
@@ -101,8 +105,8 @@ struct ContentView: View {
 
 
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}

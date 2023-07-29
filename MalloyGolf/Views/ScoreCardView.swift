@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct StatisticsView: View {
+struct ScoreCardView: View {
     @Environment(\.managedObjectContext) var moc
     @ObservedObject var game: Game
     
-    @State var hasChanges:Bool = false
+    
     
     
     
@@ -30,9 +30,7 @@ struct StatisticsView: View {
                                     
                                     
                                     Text("Hole")
-                                        
                                         .frame(width: UIScreen.main.bounds.width / 7)
-                                        
                                     Text("Par")
                                         .frame(width: UIScreen.main.bounds.width / 7)
                                     Text(game.wrappedP1Name)
@@ -43,19 +41,15 @@ struct StatisticsView: View {
                                         .frame(width: UIScreen.main.bounds.width / 7)
                                     Text(game.wrappedp4Name)
                                         .frame(width: UIScreen.main.bounds.width / 7)
-                                    
-                                        
                                 }
                                 
                                 .navigationTitle("Score Card")
-                                
-                                
+ 
                             }
-                        
-                        
+
                     }
                         
-                    NavigationLink(destination: UpdateHoleView(hole: game.wrappedHoleArray[number], game:game ,p1Name: game.wrappedP1Name ,p2Name: game.wrappedP2Name ,p3Name: game.wrappedP3Name ,p4Name: game.wrappedp4Name, hasChanges:$hasChanges))
+                    NavigationLink(destination: UpdateHoleView(hole: game.wrappedHoleArray[number], game:game ,p1Name: game.wrappedP1Name ,p2Name: game.wrappedP2Name ,p3Name: game.wrappedP3Name ,p4Name: game.wrappedp4Name))
                     {
                         
                             
@@ -63,6 +57,12 @@ struct StatisticsView: View {
                                 
                                 Text(String(number + 1))
                                     .frame(width: UIScreen.main.bounds.width / 7)
+                                    .overlay(
+                                        Circle()
+                                            .stroke(.blue, lineWidth: 2)
+                                            
+                                            
+                                    )
                                 Text(String(game.wrappedHoleArray[number].par))
                                     .frame(width: UIScreen.main.bounds.width / 7)
                                 Text(String(game.wrappedHoleArray[number].p1Score))
@@ -85,17 +85,13 @@ struct StatisticsView: View {
                         }
                     
                 }
-                
-                
-                
+
             }
             .listStyle(.grouped)
             
         
         }
-        
-        
-    
+
 }
 
 
