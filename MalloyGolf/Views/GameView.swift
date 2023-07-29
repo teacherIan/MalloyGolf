@@ -17,6 +17,7 @@ struct GameView: View {
                 
             }
             .navigationTitle("Hole \(game.wrappedHoleArray.count + 1)")
+            Text("LALA")
         }
 
     }
