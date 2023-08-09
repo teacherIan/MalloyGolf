@@ -33,19 +33,16 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 // Games
-                List {
+                
                     Section {
                         ForEach(games, id: \.self){ game in
                             if(game.active) {
-//                                NavigationLink( destination:
-//                                                    AddHoleView(game: game, p1BaseScore: game.p1Score, p2BaseScore: game.p2Score, p3BaseScore: game.p3Score, p4BaseScore: game.p4Score, p1Name: game.wrappedP1Name, p2Name: game.wrappedP2Name, p3Name: game.wrappedP3Name, p4Name: game.wrappedp4Name, currentHole: game.currentHole)) {
-//                                    Text(game.wrappedCourseName)
-//                                }
+
                                 
                                 NavigationLink(destination:
                                                 
                                                 ScoreCardView(game:game)){
-                                    Text(game.wrappedCourseName)
+                                    TabView(courseName: game.wrappedCourseName, icon: "figure.golf", date: game.date ?? Date.now,isActiveGame: true)
                                         
                                 }
                                 
@@ -55,7 +52,8 @@ struct ContentView: View {
                         }.onDelete(perform: deleteItem)
                         
                     } header: {
-                        Text("Active Games")
+                        LabelView(color: .blue, text: "Active Games")
+                        
                     }
                     
                     
@@ -63,27 +61,22 @@ struct ContentView: View {
                         
                         
                         NavigationLink(destination: CreateNewGameView()) {
-                            Text("Create New Game")
+                            TabView(courseName: "Create New Game", icon: "plus.diamond.fill", date: Date.now, isActiveGame: false)
                         }
-                        
-                        
                         
                         
                         NavigationLink(destination: HistoryView()) {
-                            Text("View History")
+                            TabView(courseName: "View Game History", icon: "fossil.shell.fill", date: Date.now, isActiveGame: false)
                         }
                         
-//                        NavigationLink(destination: StatisticsView(game:game)) {
-//                            Text("View Statistics")
-//                        }
                         
                         NavigationLink(destination: GolfTipsView()) {
-                            Text("View Tips")
+                            TabView(courseName: "Tips & Tricks & Videos", icon: "brain.head.profile", date: Date.now, isActiveGame: false)
                         }
                     } header: {
-                        Text("Options")
+                        LabelView(color: .red, text: "Options")
                     }
-                }
+                
                 
                 
                 

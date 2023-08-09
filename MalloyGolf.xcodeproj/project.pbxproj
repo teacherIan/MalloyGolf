@@ -19,6 +19,10 @@
 		8631EC8D2A6B58B4005234A0 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631EC8C2A6B58B4005234A0 /* GameView.swift */; };
 		8631EC8F2A6B6566005234A0 /* AddHoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631EC8E2A6B6566005234A0 /* AddHoleView.swift */; };
 		86F43FEE2A716BD8008C2CE3 /* UpdateHoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F43FED2A716BD8008C2CE3 /* UpdateHoleView.swift */; };
+		86F4403A2A7F2CF1008C2CE3 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F440392A7F2CF1008C2CE3 /* TabView.swift */; };
+		86F4403C2A8095FD008C2CE3 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F4403B2A8095FD008C2CE3 /* LabelView.swift */; };
+		86F4403F2A814893008C2CE3 /* PlayerScoreHoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F4403E2A814893008C2CE3 /* PlayerScoreHoleView.swift */; };
+		86F440412A815118008C2CE3 /* HoleNumberHoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F440402A815118008C2CE3 /* HoleNumberHoleView.swift */; };
 		86FB43BE2A69858C00C1639F /* MalloyGolfApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FB43BD2A69858C00C1639F /* MalloyGolfApp.swift */; };
 		86FB43C02A69858C00C1639F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FB43BF2A69858C00C1639F /* ContentView.swift */; };
 		86FB43C22A69858E00C1639F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86FB43C12A69858E00C1639F /* Assets.xcassets */; };
@@ -40,6 +44,10 @@
 		8631EC8C2A6B58B4005234A0 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		8631EC8E2A6B6566005234A0 /* AddHoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHoleView.swift; sourceTree = "<group>"; };
 		86F43FED2A716BD8008C2CE3 /* UpdateHoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateHoleView.swift; sourceTree = "<group>"; };
+		86F440392A7F2CF1008C2CE3 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		86F4403B2A8095FD008C2CE3 /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
+		86F4403E2A814893008C2CE3 /* PlayerScoreHoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScoreHoleView.swift; sourceTree = "<group>"; };
+		86F440402A815118008C2CE3 /* HoleNumberHoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleNumberHoleView.swift; sourceTree = "<group>"; };
 		86FB43BA2A69858C00C1639F /* MalloyGolf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MalloyGolf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FB43BD2A69858C00C1639F /* MalloyGolfApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MalloyGolfApp.swift; sourceTree = "<group>"; };
 		86FB43BF2A69858C00C1639F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +69,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86F4403D2A80960A008C2CE3 /* Parts */ = {
+			isa = PBXGroup;
+			children = (
+				86F440392A7F2CF1008C2CE3 /* TabView.swift */,
+				86F4403B2A8095FD008C2CE3 /* LabelView.swift */,
+				86F4403E2A814893008C2CE3 /* PlayerScoreHoleView.swift */,
+				86F440402A815118008C2CE3 /* HoleNumberHoleView.swift */,
+			);
+			path = Parts;
+			sourceTree = "<group>";
+		};
 		86FB43B12A69858C00C1639F = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +104,7 @@
 				86FB43CC2A69907700C1639F /* Views */,
 				86FB43C12A69858E00C1639F /* Assets.xcassets */,
 				86FB43C32A69858E00C1639F /* MalloyGolf.entitlements */,
+				86F4403D2A80960A008C2CE3 /* Parts */,
 				86FB43D02A6990AF00C1639F /* DB */,
 				86FB43C42A69858E00C1639F /* Preview Content */,
 			);
@@ -204,15 +224,19 @@
 				8631EC7C2A6A2DC4005234A0 /* Hole+CoreDataClass.swift in Sources */,
 				8631EC8B2A6AACA5005234A0 /* HistoryView.swift in Sources */,
 				8631EC812A6A75C5005234A0 /* DataController.swift in Sources */,
+				86F4403F2A814893008C2CE3 /* PlayerScoreHoleView.swift in Sources */,
 				8631EC8D2A6B58B4005234A0 /* GameView.swift in Sources */,
 				86FB43BE2A69858C00C1639F /* MalloyGolfApp.swift in Sources */,
 				8631EC7F2A6A2DC4005234A0 /* Game+CoreDataProperties.swift in Sources */,
 				8631EC852A6A7965005234A0 /* CreateNewGameView.swift in Sources */,
+				86F4403C2A8095FD008C2CE3 /* LabelView.swift in Sources */,
+				86F4403A2A7F2CF1008C2CE3 /* TabView.swift in Sources */,
 				8631EC892A6AABB0005234A0 /* GolfTipsView.swift in Sources */,
 				8631EC872A6AAB2D005234A0 /* ScoreCardView.swift in Sources */,
 				86F43FEE2A716BD8008C2CE3 /* UpdateHoleView.swift in Sources */,
 				86FB43CF2A69909700C1639F /* Model.xcdatamodeld in Sources */,
 				8631EC7E2A6A2DC4005234A0 /* Game+CoreDataClass.swift in Sources */,
+				86F440412A815118008C2CE3 /* HoleNumberHoleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

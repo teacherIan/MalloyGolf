@@ -29,11 +29,11 @@ struct UpdateHoleView: View {
     
     
     
-    @State var p1Score: Int = 0
-    @State var p2Score: Int = 0
-    @State var p3Score: Int = 0
-    @State var p4Score: Int = 0
-    @State var par: Int = 3
+    @State var p1Score: Int
+    @State var p2Score: Int
+    @State var p3Score: Int
+    @State var p4Score: Int
+    @State var par: Int
     
     
     
@@ -75,7 +75,7 @@ struct UpdateHoleView: View {
                         
                         Text(p1Name)
                         Picker(selection: $p1Score) {
-                            Text(String(hole.p1Score)).tag(hole.p1Score)
+//                            Text(String(hole.p1Score)).tag(hole.p1Score)
                             ForEach(possibleScoreArray, id:\.self) {
                                 Text(String($0))
                                 
@@ -109,7 +109,7 @@ struct UpdateHoleView: View {
                         
                         Text(p2Name)
                         Picker(selection: $p2Score) {
-                            Text(String(hole.p2Score)).tag(hole.p2Score)
+//                            Text(String(hole.p2Score)).tag(hole.p2Score)
                             ForEach(possibleScoreArray, id:\.self) {
                                 Text(String($0))
                                 
@@ -142,7 +142,7 @@ struct UpdateHoleView: View {
                         
                         Text(p3Name)
                         Picker(selection: $p3Score) {
-                            Text(String(hole.p3Score)).tag(hole.p3Score)
+//                            Text(String(hole.p3Score)).tag(hole.p3Score)
                             ForEach(possibleScoreArray, id:\.self) {
                                 Text(String($0))
                                 
@@ -174,7 +174,7 @@ struct UpdateHoleView: View {
                         
                         Text(p4Name)
                         Picker(selection: $p4Score) {
-                            Text(String(hole.p4Score)).tag(hole.p4Score)
+//                            Text(String(hole.p4Score)).tag(hole.p4Score)
                             ForEach(possibleScoreArray, id:\.self) {
                                 Text(String($0))
                                 

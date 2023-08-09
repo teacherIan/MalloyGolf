@@ -29,7 +29,7 @@ struct AddHoleView: View {
     @State var p2HoleScore: Int = 0
     @State var p3HoleScore: Int = 0
     @State var p4HoleScore: Int = 0
-    @State var par:Int = 3
+    @State var par:Int = 4
     @State var viewScoreCard: Bool = false
     
 
@@ -43,7 +43,7 @@ struct AddHoleView: View {
                 Section {
                     Picker("Par", selection: $par) {
                         ForEach(3..<6) {
-                            Text(String($0))
+                            Text(String($0)).tag(game.wrappedHoleArray[Int(currentHole)].par)
                         }
                     }
                 } header: {
@@ -85,7 +85,7 @@ struct AddHoleView: View {
                     Section {
                         Divider()
                         GridRow {
-                            Picker("0",selection: $p1HoleScore) {
+                            Picker(String(p1BaseScore),selection: $p1HoleScore) {
                                 ForEach(0..<11, id:\.self) {
                                     Text(String($0))
                                 }

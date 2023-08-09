@@ -23,12 +23,12 @@ struct ScoreCardView: View {
                     
                     //header
                     if(number == 0) {
-                    
+
                             NavigationLink(destination: Text("Game")) {
 
                                 HStack {
-                                    
-                                    
+
+
                                     Text("Hole")
                                         .frame(width: UIScreen.main.bounds.width / 7)
                                     Text("Par")
@@ -42,41 +42,37 @@ struct ScoreCardView: View {
                                     Text(game.wrappedp4Name)
                                         .frame(width: UIScreen.main.bounds.width / 7)
                                 }
-                                
+
+
+
                                 .navigationTitle("Score Card")
- 
+
                             }
 
                     }
                         
-                    NavigationLink(destination: UpdateHoleView(hole: game.wrappedHoleArray[number], game:game ,p1Name: game.wrappedP1Name ,p2Name: game.wrappedP2Name ,p3Name: game.wrappedP3Name ,p4Name: game.wrappedp4Name))
+
+                    NavigationLink(destination: UpdateHoleView(hole: game.wrappedHoleArray[number], game: game, p1Name: game.wrappedP1Name, p2Name: game.wrappedP2Name, p3Name: game.wrappedP3Name, p4Name: game.wrappedp4Name, p1Score: Int(game.wrappedHoleArray[number].p1Score), p2Score: Int(game.wrappedHoleArray[number].p2Score), p3Score: Int(game.wrappedHoleArray[number].p3Score), p4Score: Int(game.wrappedHoleArray[number].p4Score), par: Int(game.wrappedHoleArray[number].par)))
                     {
-                        
-                            
                             HStack {
-                                
                                 Text(String(number + 1))
                                     .frame(width: UIScreen.main.bounds.width / 7)
-                                    .overlay(
-                                        Circle()
-                                            .stroke(.blue, lineWidth: 2)
-                                            
-                                            
-                                    )
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 30))
+                                
                                 Text(String(game.wrappedHoleArray[number].par))
                                     .frame(width: UIScreen.main.bounds.width / 7)
-                                Text(String(game.wrappedHoleArray[number].p1Score))
-                                    .frame(width: UIScreen.main.bounds.width / 7)
-                                Text(String(game.wrappedHoleArray[number].p2Score))
-                                    .frame(width: UIScreen.main.bounds.width / 7)
-                                Text(String(game.wrappedHoleArray[number].p3Score))
-                                    .frame(width: UIScreen.main.bounds.width / 7)
-                                Text(String(game.wrappedHoleArray[number].p4Score))
-                                    .frame(width: UIScreen.main.bounds.width / 7)
-                                    
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 30))
 
+                                PlayerScoreHoleView(mulligan: false, pScore: Int(game.wrappedHoleArray[number].p1Score), par: Int(game.wrappedHoleArray[number].par))
+                                
+                                PlayerScoreHoleView(mulligan: false, pScore: Int(game.wrappedHoleArray[number].p2Score), par: Int(game.wrappedHoleArray[number].par))
+                                
+                                PlayerScoreHoleView(mulligan: false, pScore: Int(game.wrappedHoleArray[number].p3Score), par: Int(game.wrappedHoleArray[number].par))
+                                
+                                PlayerScoreHoleView(mulligan: false, pScore: Int(game.wrappedHoleArray[number].p4Score), par: Int(game.wrappedHoleArray[number].par))
                             }
-                            
                             
                             .navigationTitle("Score Card")
                             
