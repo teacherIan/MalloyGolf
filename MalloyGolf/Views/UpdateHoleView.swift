@@ -37,22 +37,15 @@ struct UpdateHoleView: View {
     
     
     
-    func updateDB(player:Int16) {
-        
-    }
-    
-    
     
     
     var body: some View {
         
-        NavigationView {
-            
-            
+//        NavigationView {
             
             VStack {
                 
-                Text("Par")
+                LabelView(color: .blue, text: "Par")
                 Picker("Par Picker", selection: $par) {
                     ForEach(possibleParArray, id:\.self) { number in
                         Text(String(number))
@@ -63,28 +56,34 @@ struct UpdateHoleView: View {
 
                     
                 }
+                .pickerStyle(.segmented)
                 .onChange(of: par) { newValue in
                     hole.par = Int16(par)
                     try? moc.save()
                     game.objectWillChange.send()
                     
                 }
+                
+                
+                
     
-                HStack {
-                    VStack {
+                VStack {
+                    LabelView(color: .blue, text: "Scores")
+                    HStack {
                         
-                        Text(p1Name)
+                        UpdateHoleViewNameText(name: p1Name)
                         Picker(selection: $p1Score) {
 //                            Text(String(hole.p1Score)).tag(hole.p1Score)
                             ForEach(possibleScoreArray, id:\.self) {
                                 Text(String($0))
+                                    .foregroundColor($0 > par ? .red : $0 == par ? .black : .blue)
                                 
                                 
                             }
                         } label: {
                             Text("Select p1 score")
                         }
-                        .pickerStyle(.automatic)
+                        .pickerStyle(.wheel)
                         .onChange(of: p1Score){ newValue in
                             hole.p1Score = Int16(newValue)
                             print(moc.hasChanges)
@@ -104,115 +103,130 @@ struct UpdateHoleView: View {
                         
                     }
                     
-                    
-                    VStack {
-                        
-                        Text(p2Name)
-                        Picker(selection: $p2Score) {
-//                            Text(String(hole.p2Score)).tag(hole.p2Score)
-                            ForEach(possibleScoreArray, id:\.self) {
-                                Text(String($0))
-                                
-                                
+                    if(game.playersActive > 1) {
+                        VStack {
+                            HStack {
+                                UpdateHoleViewNameText(name: p2Name)
+                                Picker(selection: $p2Score) {
+                                    //                            Text(String(hole.p2Score)).tag(hole.p2Score)
+                                    ForEach(possibleScoreArray, id:\.self) {
+                                        Text(String($0))
+                                            .foregroundColor($0 > par ? .red : $0 == par ? .black : .blue)
+                                        
+                                        
+                                    }
+                                } label: {
+                                    Text("Select p2 score")
+                                }
+                                .pickerStyle(.wheel)
+                                .onChange(of: p2Score){ newValue in
+                                    hole.p2Score = Int16(newValue)
+                                    print(moc.hasChanges)
+                                    
+                                    do {
+                                        try moc.save()
+                                        print("Saved")
+                                        
+                                        game.objectWillChange.send()
+                                    }
+                                    catch {
+                                        print("error")
+                                    }
+                                    
+                                }
                             }
-                        } label: {
-                            Text("Select p2 score")
-                        }
-                        .pickerStyle(.automatic)
-                        .onChange(of: p2Score){ newValue in
-                            hole.p2Score = Int16(newValue)
-                            print(moc.hasChanges)
                             
-                            do {
-                                try moc.save()
-                                print("Saved")
-                                
-                                game.objectWillChange.send()
-                            }
-                            catch {
-                                print("error")
-                            }
                             
                         }
-                        
-                        
                     }
                     
-                    VStack {
+                    if(game.playersActive > 2) {
                         
-                        Text(p3Name)
-                        Picker(selection: $p3Score) {
-//                            Text(String(hole.p3Score)).tag(hole.p3Score)
-                            ForEach(possibleScoreArray, id:\.self) {
-                                Text(String($0))
+                        VStack {
+                            HStack {
+                                UpdateHoleViewNameText(name: p3Name)
                                 
-                                
+                                Picker(selection: $p3Score) {
+                                    //                            Text(String(hole.p3Score)).tag(hole.p3Score)
+                                    ForEach(possibleScoreArray, id:\.self) {
+                                        Text(String($0))
+                                            .foregroundColor($0 > par ? .red : $0 == par ? .black : .blue)
+                                        
+                                        
+                                    }
+                                } label: {
+                                    Text("Select p3 score")
+                                }
+                                .pickerStyle(.wheel)
+                                .onChange(of: p3Score){ newValue in
+                                    hole.p3Score = Int16(newValue)
+                                    print(moc.hasChanges)
+                                    
+                                    do {
+                                        try moc.save()
+                                        print("Saved")
+                                        game.objectWillChange.send()
+                                    }
+                                    catch {
+                                        print("error")
+                                    }
+                                    
+                                }
                             }
-                        } label: {
-                            Text("Select p3 score")
-                        }
-                        .pickerStyle(.automatic)
-                        .onChange(of: p3Score){ newValue in
-                            hole.p3Score = Int16(newValue)
-                            print(moc.hasChanges)
                             
-                            do {
-                                try moc.save()
-                                print("Saved")
-                                game.objectWillChange.send()
-                            }
-                            catch {
-                                print("error")
-                            }
                             
                         }
-                        
-                        
                     }
                     
-                    VStack {
+                    if(game.playersActive > 3) {
                         
-                        Text(p4Name)
-                        Picker(selection: $p4Score) {
-//                            Text(String(hole.p4Score)).tag(hole.p4Score)
-                            ForEach(possibleScoreArray, id:\.self) {
-                                Text(String($0))
+                        VStack {
+                            HStack {
+                                UpdateHoleViewNameText(name: p4Name)
                                 
-                                
+                                Picker(selection: $p4Score) {
+                                    //                            Text(String(hole.p4Score)).tag(hole.p4Score)
+                                    ForEach(possibleScoreArray, id:\.self) {
+                                        Text(String($0))
+                                            .foregroundColor($0 > par ? .red : $0 == par ? .black : .blue)
+                                        
+                                        
+                                    }
+                                } label: {
+                                    Text("Select p1 score")
+                                }
+                                .pickerStyle(.wheel)
+                                .onChange(of: p4Score){ newValue in
+                                    hole.p4Score = Int16(newValue)
+                                    print(moc.hasChanges)
+                                    
+                                    do {
+                                        try moc.save()
+                                        print("Saved")
+                                        game.objectWillChange.send()
+                                    }
+                                    catch {
+                                        print("error")
+                                    }
+                                    
+                                }
                             }
-                        } label: {
-                            Text("Select p1 score")
-                        }
-                        .pickerStyle(.automatic)
-                        .onChange(of: p4Score){ newValue in
-                            hole.p4Score = Int16(newValue)
-                            print(moc.hasChanges)
                             
-                            do {
-                                try moc.save()
-                                print("Saved")
-                                game.objectWillChange.send()
-                            }
-                            catch {
-                                print("error")
-                            }
                             
                         }
-                        
-                        
                     }
                     
                     
                 }
                 
                 .navigationTitle("Hole \(hole.number + 1)")
-                Spacer()
+//                Spacer()
             }
             
         }
     }
     
-}
+//}
 
 //struct UpdateHoleView_Previews: PreviewProvider {
 //    static var previews: some View {

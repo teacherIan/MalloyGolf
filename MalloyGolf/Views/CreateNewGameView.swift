@@ -109,6 +109,7 @@ struct CreateNewGameView: View {
                     
                     Section {
                         TextEditor(text: $notes)
+                            .frame(height:100)
                     } header: {
                         Text("Notes")
                     }
@@ -133,6 +134,7 @@ struct CreateNewGameView: View {
                     game.p3Score = 0
                     game.p4Score = 0
                     game.currentHole = 1
+                    game.playersActive = Int16(playersActive)
                     
                     for i in 0..<18 {
                         let hole = Hole(context: moc)

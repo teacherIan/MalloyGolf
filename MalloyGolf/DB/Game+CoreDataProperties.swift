@@ -35,8 +35,11 @@ extension Game {
     @NSManaged public var p2Score: Int16
     @NSManaged public var p3Score: Int16
     @NSManaged public var p4Score: Int16
+    @NSManaged public var p1FinalScore: Int16
     
     
+    
+
     
     var wrappedP1Name:String {
         p1Name ?? "P1"
@@ -64,6 +67,108 @@ extension Game {
             $0.number < $1.number
         }
     }
+    
+    var p1Total: Int {
+        var score = 0
+        for num in wrappedHoleArray {
+            score = score + Int(num.p1Score)
+        }
+        
+        return score
+    }
+    
+    var p2Total: Int {
+        var score = 0
+        for num in wrappedHoleArray {
+            score = score + Int(num.p2Score)
+        }
+        
+        return score
+    }
+    
+    var p3Total: Int {
+        var score = 0
+        for num in wrappedHoleArray {
+            score = score + Int(num.p3Score)
+        }
+        
+        return score
+    }
+    
+    var p4Total: Int {
+        var score = 0
+        for num in wrappedHoleArray {
+            score = score + Int(num.p4Score)
+        }
+        
+        return score
+    }
+    
+    var parTotal: Int {
+        var total = 0
+        for hole in wrappedHoleArray {
+            total = total + Int(hole.par)
+        }
+        
+        return total
+    }
+    
+    var p1FrontNine: Int {
+        var total = 0
+        for hole in wrappedHoleArray {
+            if hole.number < 9 {
+                total = total + Int(hole.p1Score)
+            }
+        }
+        return total
+        
+    }
+    
+    var p2FrontNine: Int {
+        var total = 0
+        for hole in wrappedHoleArray {
+            if hole.number < 9 {
+                total = total + Int(hole.p2Score)
+            }
+        }
+        return total
+        
+    }
+    
+    var p3FrontNine: Int {
+        var total = 0
+        for hole in wrappedHoleArray {
+            if hole.number < 9 {
+                total = total + Int(hole.p3Score)
+            }
+        }
+        return total
+        
+    }
+    
+    var p4FrontNine: Int {
+        var total = 0
+        for hole in wrappedHoleArray {
+            if hole.number < 9 {
+                total = total + Int(hole.p4Score)
+            }
+        }
+        return total
+        
+    }
+    
+    var parFrontNine: Int {
+        var total = 0
+        for hole in wrappedHoleArray {
+            if hole.number < 9 {
+                total = total + Int(hole.par)
+            }
+        }
+        return total
+        
+    }
+    
+    
     
     
     

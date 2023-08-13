@@ -30,20 +30,22 @@ struct ContentView: View {
     
     var body: some View {
         
-        NavigationView {
-            VStack {
-                // Games
-                
+            NavigationView {
+                ScrollView {
+                VStack {
+                    // Games
+                    
+                    
                     Section {
                         ForEach(games, id: \.self){ game in
                             if(game.active) {
-
+                                
                                 
                                 NavigationLink(destination:
                                                 
                                                 ScoreCardView(game:game)){
                                     TabView(courseName: game.wrappedCourseName, icon: "figure.golf", date: game.date ?? Date.now,isActiveGame: true)
-                                        
+                                    
                                 }
                                 
                                 
@@ -66,7 +68,7 @@ struct ContentView: View {
                         
                         
                         NavigationLink(destination: HistoryView()) {
-                            TabView(courseName: "View Game History", icon: "fossil.shell.fill", date: Date.now, isActiveGame: false)
+                            TabView(courseName: "Manage/View Game History", icon: "fossil.shell.fill", date: Date.now, isActiveGame: false)
                         }
                         
                         
@@ -76,21 +78,21 @@ struct ContentView: View {
                     } header: {
                         LabelView(color: .red, text: "Options")
                     }
+                    
+                    
+                    
+                    
+                }
+                .navigationTitle("Main Menu")
                 
                 
                 
                 
             }
-            .navigationTitle("Main Menu")
             
-            
-
             
         }
-        
-
     }
-    
 
     
 }

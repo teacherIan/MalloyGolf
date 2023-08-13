@@ -21,14 +21,15 @@ struct TabView: View {
                 
                     ZStack {
 
-                        RoundedRectangle(cornerRadius: 40)
-                            .frame(maxWidth: .infinity, maxHeight: 100).foregroundColor(isActiveGame ? .blue : .red).opacity(0.8)
+                        RoundedRectangle(cornerRadius: 20)
+                            .frame(maxWidth: .infinity, maxHeight: 120).foregroundColor(isActiveGame ? .blue : .red).opacity(0.8)
                             .shadow(color: isActiveGame ? .blue.opacity(0.9) : .red.opacity(0.5), radius: 5, x: 5, y: 5)
+                            .padding()
                             
                             
                             
                         
-                        HStack(spacing:0) {
+                        HStack(spacing:10) {
                             
                             Text(courseName)
                                 .foregroundColor(.white)
@@ -36,7 +37,7 @@ struct TabView: View {
                                 .font(.title)
                                 .padding()
                             
-                            Spacer()
+//                            Spacer()
                             
                             Image(systemName: icon)
                                 .frame(width:80)
@@ -55,7 +56,7 @@ struct TabView: View {
                                     .padding()
                             }
                         }
-//                        .padding()
+                        
                         
                             
                     } //ZStack
@@ -63,8 +64,11 @@ struct TabView: View {
                     .navigationTitle("Home")
                     
                     
-                } //Navigation Link
-//                .padding(.horizontal)
+                }
+        
+    
+    //Navigation Link
+                
 //                Spacer()
                 
             
